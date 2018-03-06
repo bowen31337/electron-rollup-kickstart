@@ -4,11 +4,10 @@ import url from 'url'
 import isDev from './isDev'
 import reloader from 'electron-reloader'
 
-reloader(module, {ignore:path.join(__dirname, '..','src')})
+isDev && reloader(module, {ignore:path.join(__dirname, '..','src')})
 
 const { app, BrowserWindow } = electron
 
-console.log(process.execPath)
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow

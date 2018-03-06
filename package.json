@@ -1,0 +1,64 @@
+{
+  "name": "electron-rollup-kickstart",
+  "version": "1.0.0",
+  "description": "this is a electron rollup project skeleton setup",
+  "main": "dist/main.js",
+  "keywords": [
+    "electron",
+    "rollup"
+  ],
+  "author": {
+    "name": "Bowen Li",
+    "email": "superdev@outlook.com.au"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "electron": "~1.8.2",
+    "electron-reloader": "^0.2.0",
+    "faucet": "^0.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "1.9.2",
+    "rollup": "^0.56.3",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "sinon": "^4.1.3",
+    "tape": "^4.8.0"
+  },
+  "scripts": {
+    "start":"npm-run-all -p start:dev start:electron",
+    "start:dev": "rollup -c -w ",
+    "start:electron": "electron .",
+    "build": "rollup -c",
+    "test": "node test/test.js | faucet",
+    "pretest": "npm run build",
+    "precommit": "lint-staged",
+    "format": "prettier --trailing-comma es5 --single-quote --no-semi --write 'src/**/*.js'"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier prettier --trailing-comma es5 --single-quote --no-semi --write",
+      "git add"
+    ],
+    "yarn.lock": [
+      "git rm --cached",
+      "git add"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bowen31337/electron-rollup-kickstart.git"
+  },
+  "engines": {
+    "node": ">=8.6.2"
+  }
+}

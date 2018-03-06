@@ -4,7 +4,7 @@ import url from 'url'
 import isDev from './isDev'
 import reloader from 'electron-reloader'
 
-isDev && reloader(module, {ignore:path.join(__dirname, '..','src')})
+isDev && reloader(module)
 
 const { app, BrowserWindow } = electron
 

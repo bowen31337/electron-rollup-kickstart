@@ -9,11 +9,10 @@ var reloader = _interopDefault(require('electron-reloader'));
 
 const isDev = process.defaultApp || /node_modules[\\/]electron[\\/]/.test(process.execPath);
 
-reloader(module, {ignore:path.join(__dirname, '..','src')});
+isDev && reloader(module);
 
 const { app, BrowserWindow } = electron;
 
-console.log(process.execPath);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
